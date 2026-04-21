@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Fiksi - Aroma & Cerita dalam Secangkir Kopi</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    <link rel="icon" href="https://placehold.co/32x32/5a3d32/f5f0e6?text=KS" type="image/png">
+
+    <style>
+        :root {
+            --color-espresso-dark: #2c1e1a;
+            --color-mocha-brown: #463028;
+            --color-text-cream: #f5f0e6;
+            --color-text-latte: #d7ccc8;
+            --color-accent-gold: #c5a880;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-espresso-dark);
+            color: var(--color-text-latte);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: var(--color-text-cream);
+        }
+        .navbar-scrolled {
+            background-color: hsla(17, 27%, 10%, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(245, 240, 230, 0.1);
+        }
+        .btn {
+            padding: 12px 32px;
+            border-radius: 9999px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: var(--color-accent-gold);
+            color: var(--color-espresso-dark);
+        }
+        .btn-primary:hover {
+            background-color: var(--color-text-cream);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--color-text-cream);
+            border: 1px solid var(--color-text-latte);
+        }
+        .btn-secondary:hover {
+            background-color: var(--color-accent-gold);
+            color: var(--color-espresso-dark);
+            border-color: var(--color-accent-gold);
+        }
+        .title-accent {
+            color: var(--color-accent-gold);
+        }
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+        }
+        .fade-in-up.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .menu-filter-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--color-text-latte);
+            border-radius: 9999px;
+            color: var(--color-text-latte);
+            transition: all 0.3s ease;
+        }
+        .menu-filter-btn.active, .menu-filter-btn:hover {
+            background-color: var(--color-accent-gold);
+            color: var(--color-espresso-dark);
+            border-color: var(--color-accent-gold);
+        }
+        .masonry-gallery {
+            column-count: 2;
+            column-gap: 1rem;
+        }
+        @media (min-width: 768px) {
+            .masonry-gallery {
+                column-count: 4;
+            }
+        }
+        .masonry-gallery .break-inside {
+            break-inside: avoid;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="https://wa.me/6281234567890?text=Halo,%20saya%20tertarik%20dengan%20Kopi%20Senja." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white h-14 w-14 rounded-full shadow-lg flex items-center justify-center transition-transform transform hover:scale-110">
+        <i data-lucide="message-circle" class="w-7 h-7"></i>
+    </a>
+
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="hidden lg:block text-sm text-[var(--color-text-latte)]">
+                <div id="date-display" class="font-medium"></div>
+                <div id="time-display"></div>
+            </div>
+            <a href="#" class="text-3xl font-bold font-serif text-[var(--color-text-cream)] lg:absolute lg:left-1/2 lg:-translate-x-1/2">Kopi Fiksi</a>
+            <div class="hidden md:flex space-x-6 items-center text-sm font-medium">
+                <a href="#beranda" class="text-[var(--color-text-latte)] hover:text-white transition-colors">Beranda</a>
+                <a href="#tentang" class="text-[var(--color-text-latte)] hover:text-white transition-colors">Tentang</a>
+                <a href="#menu" class="text-[var(--color-text-latte)] hover:text-white transition-colors">Menu</a>
+                 <a href="#acara" class="text-[var(--color-text-latte)] hover:text-white transition-colors">Acara</a>
+                <a href="#galeri" class="text-[var(--color-text-latte)] hover:text-white transition-colors">Galeri</a>
+                <a href="#testimoni" class="text-[var(--color-text-latte)] hover:text-white transition-colors">Testimoni</a>
+                <a href="#kontak" class="btn btn-secondary !py-2 !px-6">Kontak</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-[var(--color-espresso-dark)]">
+             <a href="#beranda" class="block text-center py-3 text-white hover:bg-[var(--color-mocha-brown)] transition-colors">Beranda</a>
+            <a href="#tentang" class="block text-center py-3 text-white hover:bg-[var(--color-mocha-brown)] transition-colors">Tentang</a>
+            <a href="#menu" class="block text-center py-3 text-white hover:bg-[var(--color-mocha-brown)] transition-colors">Menu</a>
+            <a href="#acara" class="block text-center py-3 text-white hover:bg-[var(--color-mocha-brown)] transition-colors">Acara</a>
+            <a href="#galeri" class="block text-center py-3 text-white hover:bg-[var(--color-mocha-brown)] transition-colors">Galeri</a>
+            <a href="#testimoni" class="block text-center py-3 text-white hover:bg-[var(--color-mocha-brown)] transition-colors">Testimoni</a>
+            <a href="#kontak" class="block text-center py-3 text-white hover:bg-[var(--color-mocha-brown)] transition-colors">Kontak</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="beranda" class="relative min-h-screen flex items-center">
+            <div class="absolute inset-0 bg-gradient-to-t from-[var(--color-espresso-dark)] via-black/50 to-transparent"></div>
+            <img src="home.webp" 
+                 alt="[Gambar interior kafe yang remang-remang dan elegan]" 
+                 class="w-full h-full absolute inset-0 object-cover -z-10">
+            <div class="container mx-auto px-6 text-white relative">
+                <div class="max-w-2xl">
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight">Aroma & Cerita <span class="title-accent">dalam Secangkir Kopi.</span></h1>
+                    <p class="text-lg md:text-xl mt-6 max-w-lg text-[var(--color-text-latte)]">
+                        Di Kopi Fiksi, kami tidak hanya menyeduh kopi. Kami merangkai momen, menciptakan kehangatan, dan menjadi bagian dari cerita Anda.
+                    </p>
+                    <a href="#menu" class="btn btn-primary mt-10">Jelajahi Menu Kami</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="tentang" class="py-24 md:py-32 bg-[var(--color-mocha-brown)]">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
+                    <div class="lg:w-1/2 relative fade-in-up">
+                        <div class="absolute -top-4 -left-4 w-full h-full border-4 border-[var(--color-accent-gold)]/30 rounded-lg -z-10"></div>
+                        <img src="home.jpg" 
+                             alt="[Gambar barista sedang menuangkan latte art]" 
+                             class="rounded-lg shadow-2xl w-full h-auto object-cover relative">
+                    </div>
+                    <div class="lg:w-1/2 fade-in-up" style="transition-delay: 200ms;">
+                        <h2 class="text-4xl md:text-5xl mb-6">Lebih dari <span class="title-accent">Sekadar Kafe</span></h2>
+                        <p class="mb-4 text-lg">
+                            Kopi Fiksi adalah sebuah perjalanan. Dimulai dari biji kopi terbaik nusantara yang dipilih dengan cermat, hingga diseduh dengan penuh gairah oleh barista terampil.
+                        </p>
+                        <p class="text-lg">
+                            Kami membangun tempat ini sebagai oase ketenangan di tengah hiruk pikuk kota. Sebuah ruang di mana setiap sudutnya dirancang untuk kenyamanan, inspirasi, dan koneksi.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="menu" class="py-24 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl mb-4">Menu <span class="title-accent">Andalan</span></h2>
+                    <p class="text-lg">Dibuat dengan bahan-bahan terbaik dan sentuhan cinta. Jelajahi pilihan kami.</p>
+                </div>
+                <div id="menu-filters" class="flex flex-wrap justify-center gap-4 mt-12 fade-in-up">
+                    <button class="menu-filter-btn active" data-filter="all">Semua</button>
+                    <button class="menu-filter-btn" data-filter="kopi">Kopi</button>
+                    <button class="menu-filter-btn" data-filter="non-kopi">Non-Kopi</button>
+                    <button class="menu-filter-btn" data-filter="makanan">Makanan Ringan</button>
+                </div>
+                <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+                    <div class="menu-item" data-category="kopi">
+                        <div class="bg-[var(--color-mocha-brown)] border border-white/10 rounded-lg overflow-hidden group transition-all duration-300 hover:border-[var(--color-accent-gold)]/50 hover:shadow-2xl hover:shadow-black/30">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop" alt="[Gambar Es Kopi Susu Gula Aren]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                            <div class="p-6"><h3 class="text-2xl">Signature Kopi Fiksi</h3><p class="mt-2 mb-4 h-16">Espresso, susu, dan sirup aren rahasia kami.</p><span class="font-bold text-xl title-accent">Rp 28.000</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="kopi">
+                        <div class="bg-[var(--color-mocha-brown)] border border-white/10 rounded-lg overflow-hidden group transition-all duration-300 hover:border-[var(--color-accent-gold)]/50 hover:shadow-2xl hover:shadow-black/30">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop" alt="[Gambar V60 Pour Over Coffee]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                            <div class="p-6"><h3 class="text-2xl">V60 Manual Brew</h3><p class="mt-2 mb-4 h-16">Nikmati karakter asli dari biji kopi single origin.</p><span class="font-bold text-xl title-accent">Rp 35.000</span></div>
+                        </div>
+                    </div>
+                     <div class="menu-item" data-category="kopi">
+                        <div class="bg-[var(--color-mocha-brown)] border border-white/10 rounded-lg overflow-hidden group transition-all duration-300 hover:border-[var(--color-accent-gold)]/50 hover:shadow-2xl hover:shadow-black/30">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop" alt="[Gambar Cappuccino]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                            <div class="p-6"><h3 class="text-2xl">Cappuccino</h3><p class="mt-2 mb-4 h-16">Keseimbangan sempurna antara espresso dan susu.</p><span class="font-bold text-xl title-accent">Rp 30.000</span></div>
+                        </div>
+                    </div>
+                     <div class="menu-item" data-category="non-kopi">
+                        <div class="bg-[var(--color-mocha-brown)] border border-white/10 rounded-lg overflow-hidden group transition-all duration-300 hover:border-[var(--color-accent-gold)]/50 hover:shadow-2xl hover:shadow-black/30">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop" alt="[Gambar Matcha Latte]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                            <div class="p-6"><h3 class="text-2xl">Matcha Latte</h3><p class="mt-2 mb-4 h-16">Bubuk matcha premium dari Jepang dengan susu segar.</p><span class="font-bold text-xl title-accent">Rp 32.000</span></div>
+                        </div>
+                    </div>
+                     <div class="menu-item" data-category="non-kopi">
+                        <div class="bg-[var(--color-mocha-brown)] border border-white/10 rounded-lg overflow-hidden group transition-all duration-300 hover:border-[var(--color-accent-gold)]/50 hover:shadow-2xl hover:shadow-black/30">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop" alt="[Gambar Chocolate]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                            <div class="p-6"><h3 class="text-2xl">Signature Chocolate</h3><p class="mt-2 mb-4 h-16">Cokelat Belgia yang kaya rasa, disajikan panas atau dingin.</p><span class="font-bold text-xl title-accent">Rp 30.000</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="makanan">
+                        <div class="bg-[var(--color-mocha-brown)] border border-white/10 rounded-lg overflow-hidden group transition-all duration-300 hover:border-[var(--color-accent-gold)]/50 hover:shadow-2xl hover:shadow-black/30">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop" alt="[Gambar Red Velvet Cake]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                            <div class="p-6"><h3 class="text-2xl">Red Velvet Cake</h3><p class="mt-2 mb-4 h-16">Kue lembut dengan cream cheese frosting mewah.</p><span class="font-bold text-xl title-accent">Rp 45.000</span></div>
+                        </div>
+                    </div>
+                    <div class="menu-item" data-category="makanan">
+                        <div class="bg-[var(--color-mocha-brown)] border border-white/10 rounded-lg overflow-hidden group transition-all duration-300 hover:border-[var(--color-accent-gold)]/50 hover:shadow-2xl hover:shadow-black/30">
+                            <div class="overflow-hidden h-64"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=1974&auto=format&fit=crop" alt="[Gambar Truffle Fries]" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"></div>
+                            <div class="p-6"><h3 class="text-2xl">Truffle Fries</h3><p class="mt-2 mb-4 h-16">Kentang goreng renyah dengan minyak truffle dan keju.</p><span class="font-bold text-xl title-accent">Rp 38.000</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="acara" class="py-24 md:py-32 bg-[var(--color-mocha-brown)]">
+            <div class="container mx-auto px-6">
+                 <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl mb-4">Acara <span class="title-accent">Spesial</span></h2>
+                    <p class="text-lg">Jangan lewatkan acara dan promosi menarik yang kami siapkan khusus untuk Anda.</p>
+                </div>
+                <div class="mt-16 max-w-4xl mx-auto bg-[var(--color-espresso-dark)] rounded-lg shadow-2xl flex flex-col md:flex-row overflow-hidden fade-in-up">
+                    <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=2070&auto=format&fit=crop" alt="[Gambar suasana live music]" class="w-full md:w-5/12 h-64 md:h-auto object-cover">
+                    <div class="p-8 md:p-12 flex flex-col justify-center">
+                        <p class="text-sm font-semibold text-[var(--color-accent-gold)]">ACARA MENDATANG</p>
+                        <h3 class="text-3xl mt-2 mb-4">Senja Akustik</h3>
+                        <p class="mb-6">Nikmati alunan musik akustik yang menenangkan setiap Sabtu malam. Temani malam minggu Anda dengan melodi indah dan secangkir kopi hangat.</p>
+                        <div class="flex items-center gap-4 text-lg">
+                            <i data-lucide="calendar" class="w-6 h-6 text-[var(--color-accent-gold)]"></i>
+                            <span>Setiap Sabtu, 19:00 WITA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="galeri" class="py-24 md:py-32">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl mb-4">Momen di <span class="title-accent">Kopi Fiksi</span></h2>
+                    <p class="text-lg">Intip kehangatan dan suasana di dalam rumah kami. Setiap sudut adalah cerita.</p>
+                </div>
+                <div class="masonry-gallery mt-16 fade-in-up">
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar cangkir di atas biji kopi]"></div>
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar barista menuang kopi]"></div>
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar interior kafe]"></div>
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar croissant]"></div>
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar cangkir kopi dari atas]"></div>
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar teman di kafe]"></div>
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar mesin kopi]"></div>
+                    <div class="break-inside mb-4"><img class="h-auto w-full rounded-lg shadow-lg transition-transform hover:scale-105" src="https://images.unsplash.com/photo-1559496417-e7f25cb247f3?q=80&w=1974&auto=format&fit=crop" alt="[Gambar orang bekerja di kafe]"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="testimoni" class="py-24 md:py-32 bg-[var(--color-mocha-brown)]">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-3xl mx-auto">
+                    <h2 class="text-4xl md:text-5xl mb-4">Kata Mereka <span class="title-accent">Tentang Kami</span></h2>
+                    <p class="text-lg">Kami bangga menjadi bagian dari momen berharga para pelanggan kami.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
+                    <div class="bg-[var(--color-espresso-dark)] p-8 rounded-lg border border-white/10 fade-in-up">
+                        <i data-lucide="quote" class="w-10 h-10 text-[var(--color-accent-gold)] opacity-50 mb-4"></i>
+                        <p class="mb-6">"Tempat ternyaman buat nugas di Banjarmasin. Kopinya enak, suasananya tenang, Wi-Fi kencang. Baristanya juga ramah-ramah!"</p>
+                        <div class="flex items-center">
+                            <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=2080&auto=format&fit=crop" alt="[Foto profil pelanggan 1]">
+                            <div class="ml-4"><h4 class="font-bold text-white">Ahmad Fauzi</h4><p class="text-sm text-[var(--color-text-latte)]">Mahasiswa</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-[var(--color-espresso-dark)] p-8 rounded-lg border border-white/10 fade-in-up" style="transition-delay: 200ms;">
+                        <i data-lucide="quote" class="w-10 h-10 text-[var(--color-accent-gold)] opacity-50 mb-4"></i>
+                        <p class="mb-6">"Signature Kopi Fiksi-nya juara! Rasanya beda dari yang lain. Tempatnya juga estetik banget buat foto-foto. Highly recommended!"</p>
+                        <div class="flex items-center">
+                            <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" alt="[Foto profil pelanggan 2]">
+                            <div class="ml-4"><h4 class="font-bold text-white">Rina Setiawati</h4><p class="text-sm text-[var(--color-text-latte)]">Content Creator</p></div>
+                        </div>
+                    </div>
+                    <div class="bg-[var(--color-espresso-dark)] p-8 rounded-lg border border-white/10 fade-in-up" style="transition-delay: 400ms;">
+                        <i data-lucide="quote" class="w-10 h-10 text-[var(--color-accent-gold)] opacity-50 mb-4"></i>
+                        <p class="mb-6">"Sering meeting sama klien di sini. Suasananya profesional tapi tetap santai. Red Velvet Cake-nya wajib coba, enak banget."</p>
+                        <div class="flex items-center">
+                            <img class="h-12 w-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" alt="[Foto profil pelanggan 3]">
+                            <div class="ml-4"><h4 class="font-bold text-white">Budi Santoso</h4><p class="text-sm text-[var(--color-text-latte)]">Freelancer</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="py-24 md:py-32 bg-cover bg-center bg-fixed" style="background-image: linear-gradient(rgba(44, 30, 26, 0.9), rgba(44, 30, 26, 0.9)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?q=80&w=2070&auto=format&fit=crop')">
+            <div class="container mx-auto px-6 text-center text-white">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Kami Menunggu <span class="title-accent">Kedatangan Anda</span></h2>
+                <p class="text-lg max-w-2xl mx-auto mb-10 text-[var(--color-text-latte)]">Jadikan hari Anda lebih istimewa. Kunjungi kami untuk secangkir kopi terbaik dan suasana yang tak akan Anda lupakan.</p>
+                <div class="bg-black/20 backdrop-blur-sm p-8 rounded-lg shadow-lg max-w-2xl mx-auto border border-white/20">
+                    <p class="text-xl font-semibold">Jl. Sape-Bima Kabupaten Bima</p>
+                    <p class="mt-2">Buka Setiap Hari: 08:00 - 23:00 WITA</p>
+                    <div class="mt-6">
+                        <a href="https://maps.app.goo.gl/example" target="_blank" class="btn btn-primary">Lihat di Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FIX: Footer disederhanakan -->
+    <footer class="bg-[var(--color-mocha-brown)] py-16">
+        <div class="container mx-auto px-6 text-center">
+            <h3 class="text-3xl mb-2">Kopi Fiksi</h3>
+            <p class="max-w-md mx-auto mb-6">Tempat di mana setiap tegukan adalah cerita dan setiap senja adalah momen berharga.</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="#" class="text-[var(--color-text-latte)] hover:text-white">Instagram</a>
+                <a href="#" class="text-[var(--color-text-latte)] hover:text-white">Facebook</a>
+                <a href="#" class="text-[var(--color-text-latte)] hover:text-white">TikTok</a>
+            </div>
+            <div class="border-t border-white/10 pt-8 text-sm">
+                <p>&copy; 2025 Kopi Fiksi. Didesain dengan Penuh Cinta di Bima.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            lucide.createIcons();
+            const navbar = document.getElementById('navbar');
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('navbar-scrolled');
+                else navbar.classList.remove('navbar-scrolled');
+            });
+            mobileMenuButton.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+            
+            const timeDisplay = document.getElementById('time-display');
+            const dateDisplay = document.getElementById('date-display');
+            const days = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+            const months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+            function updateTime() {
+                const now = new Date();
+                const day = days[now.getDay()];
+                const date = now.getDate();
+                const month = months[now.getMonth()];
+                const year = now.getFullYear();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const seconds = String(now.getSeconds()).padStart(2, '0');
+                if (timeDisplay) timeDisplay.textContent = `${hours}:${minutes}:${seconds} WITA`;
+                if (dateDisplay) dateDisplay.textContent = `${day}, ${date} ${month} ${year}`;
+            }
+            setInterval(updateTime, 1000);
+            updateTime();
+
+            const filterContainer = document.querySelector('#menu-filters');
+            const menuItems = document.querySelectorAll('#menu-grid .menu-item');
+            if(filterContainer) {
+                filterContainer.addEventListener('click', (event) => {
+                    if(event.target.tagName !== 'BUTTON') return;
+                    filterContainer.querySelector('.active').classList.remove('active');
+                    event.target.classList.add('active');
+                    const filter = event.target.dataset.filter;
+                    menuItems.forEach(item => {
+                        if (filter === 'all' || item.dataset.category === filter) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

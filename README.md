@@ -1,0 +1,46 @@
+# ☕ Cafe Landing Page
+
+Project ini merupakan **landing page cafe sederhana** yang dibuat untuk keperluan **pembelajaran dan latihan frontend**.
+
+Seluruh konten pada website ini **bersifat fiktif**, termasuk teks, menu, dan gambar yang digunakan.
+
+---
+
+## 📌 Tentang Project
+
+Landing page ini dibuat menggunakan **satu file HTML**  
+dengan **CSS dan JavaScript ditulis langsung di dalam file HTML (inline)**.
+
+Project ini berfokus pada:
+- Struktur HTML
+- Tata letak halaman
+- Styling dasar
+- Interaksi sederhana menggunakan JavaScript
+
+---
+
+## ✨ Fitur
+
+- Desain landing page cafe
+- Responsive layout
+- Hero section
+- Section menu
+- Informasi jam buka & kontak (fiktif)
+- Tidak memerlukan setup tambahan
+
+---
+
+## 🛠️ Teknologi
+
+- HTML5
+- CSS (inline)
+- JavaScript (inline)
+
+---
+
+## 📂 Struktur Project
+
+```text
+cafe-landing-page/
+└── index.html
+
