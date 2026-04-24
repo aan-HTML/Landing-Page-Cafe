@@ -40,13 +40,6 @@ Website ini mengusung konsep:
 
 Dengan kombinasi warna dan layout yang memberikan kesan nyaman seperti suasana cafe itu sendiri.
 
----
-
-## 📸 Preview
-![Cafe Preview](https://aan.my.id/img/proyek/landing-page-cafe.webp)
-
----
-
 ## 🤝 Hasil untuk Klien
 - Tampilan website yang lebih profesional  
 - Branding cafe yang lebih kuat di dunia digital  
