@@ -43,7 +43,7 @@ Dengan kombinasi warna dan layout yang memberikan kesan nyaman seperti suasana c
 ---
 
 ## 📸 Preview
-![Cafe Preview](https://aan.my.id/img/proyek/landing page cafe.webp)
+![Cafe Preview](https://aan.my.id/img/proyek/landing-page-cafe.webp)
 
 ---
 
