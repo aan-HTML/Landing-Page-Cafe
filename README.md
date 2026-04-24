@@ -1,46 +1,64 @@
-# ☕ Cafe Landing Page
+# ☕ Cafe Landing Page Website
 
-Project ini merupakan **landing page cafe sederhana** yang dibuat untuk keperluan **pembelajaran dan latihan frontend**.
+## 💼 Tentang Proyek
+Proyek ini merupakan pembuatan **landing page website cafe** yang saya kerjakan sebagai bagian dari **freelance project**. Website ini dirancang untuk membantu cafe dalam meningkatkan kehadiran digital serta menarik lebih banyak pelanggan melalui tampilan yang modern dan interaktif.
 
-Seluruh konten pada website ini **bersifat fiktif**, termasuk teks, menu, dan gambar yang digunakan.
-
----
-
-## 📌 Tentang Project
-
-Landing page ini dibuat menggunakan **satu file HTML**  
-dengan **CSS dan JavaScript ditulis langsung di dalam file HTML (inline)**.
-
-Project ini berfokus pada:
-- Struktur HTML
-- Tata letak halaman
-- Styling dasar
-- Interaksi sederhana menggunakan JavaScript
+Fokus utama dari proyek ini adalah menghadirkan desain yang **menarik secara visual**, **responsif**, dan **mudah digunakan** oleh pengunjung.
 
 ---
 
-## ✨ Fitur
-
-- Desain landing page cafe
-- Responsive layout
-- Hero section
-- Section menu
-- Informasi jam buka & kontak (fiktif)
-- Tidak memerlukan setup tambahan
+## 🎯 Tujuan
+- Meningkatkan branding cafe secara online  
+- Menampilkan menu dan suasana cafe secara menarik  
+- Memudahkan pelanggan mendapatkan informasi penting  
+- Memberikan pengalaman pengguna (UX) yang nyaman  
 
 ---
 
-## 🛠️ Teknologi
-
-- HTML5
-- CSS (inline)
-- JavaScript (inline)
+## ⚙️ Tech Stack
+- **HTML5** — struktur halaman  
+- **CSS3** — styling & layout  
+- **JavaScript** — interaktivitas  
 
 ---
 
-## 📂 Struktur Project
+## 🚀 Fitur Utama
+- ☕ Hero section dengan tampilan visual yang menarik  
+- 📱 Desain responsif (mobile & desktop)  
+- 📋 Menu cafe yang informatif  
+- 📍 Informasi lokasi & kontak  
+- 🎯 Call To Action (CTA) untuk menarik pelanggan  
+- ⚡ Animasi ringan untuk meningkatkan user experience  
 
-```text
-cafe-landing-page/
-└── index.html
+---
 
+## 🎨 Konsep Desain
+Website ini mengusung konsep:
+- **Modern & Clean**  
+- **Warm & Cozy** (sesuai nuansa cafe)  
+- **User-Friendly Interface**  
+
+Dengan kombinasi warna dan layout yang memberikan kesan nyaman seperti suasana cafe itu sendiri.
+
+---
+
+## 📸 Preview
+![Cafe Preview](https://kopifiksi.vercel.app)
+
+---
+
+## 🤝 Hasil untuk Klien
+- Tampilan website yang lebih profesional  
+- Branding cafe yang lebih kuat di dunia digital  
+- Media promosi online yang efektif  
+
+---
+
+## 📌 Catatan
+> Proyek ini merupakan bagian dari freelance work.  
+> Pengembangan lebih lanjut dapat mencakup fitur seperti pemesanan online atau integrasi backend.
+
+---
+
+## 👨‍💻 Author
+Dibuat oleh **Aan** sebagai bagian dari pengembangan skill di bidang Web Development & Freelance Project.
